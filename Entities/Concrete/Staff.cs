@@ -9,5 +9,9 @@ namespace Entities.Concrete
 {
     public class Staff:IEntity
     {
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public string? SurName { get; set; }
+        public int DegreeId { get; set; }
     }
 }

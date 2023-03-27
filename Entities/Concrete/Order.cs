@@ -9,5 +9,7 @@ namespace Entities.Concrete
 {
     public class Order:IEntity
     {
+        public int Id { get; set; }
+        public string? OrderNo { get; set; }
     }
 }

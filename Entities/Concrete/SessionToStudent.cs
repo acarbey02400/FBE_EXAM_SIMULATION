@@ -9,5 +9,9 @@ namespace Entities.Concrete
 {
     public class SessionToStudent:IEntity
     {
+        public int Id { get; set; }
+        public int SessionId { get; set; }
+        public int StudentId { get; set; }
+
     }
 }

@@ -9,5 +9,7 @@ namespace Entities.Concrete
 {
     public class Classrom:IEntity
     {
+        public int Id { get; set; }
+        public string? ClassromNo { get; set; }
     }
 }

@@ -9,5 +9,7 @@ namespace Entities.Concrete
 {
     public class Year:IEntity
     {
+        public int Id { get; set; }
+        public DateTime DateTime { get; set; }
     }
 }
