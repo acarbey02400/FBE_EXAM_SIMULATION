@@ -12,7 +12,7 @@ namespace DataAccess.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=SauDbContext;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=SauExamSimulationDb;Trusted_Connection=true");
         }
 
         public DbSet<Classrom> Classroms { get; set; }

@@ -16,7 +16,7 @@ namespace Business.Abstract
         public IDataResult<List<Exam>> getAll();
         public IDataResult<List<Exam>> getByName(string name);
         public IDataResult<Exam> getById(int id);
-        public IDataResult<Exam> getByYearId(int id);
+        public IDataResult<Exam> getByYearId(int id);//list
         public IDataResult<Exam> getByFacultiyId(int id);
         public IDataResult<Exam> getBySemesterId(int id);
     }

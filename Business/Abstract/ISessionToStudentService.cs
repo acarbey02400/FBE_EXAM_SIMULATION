@@ -15,7 +15,7 @@ namespace Business.Abstract
         public IResult delete(SessionToStudent sessionToStudent);
         public IDataResult<List<SessionToStudent>> getAll();
         public IDataResult<SessionToStudent> getById(int id);
-        public IDataResult<SessionToStudent> getBySessionId(int id);
+        public IDataResult<SessionToStudent> getBySessionId(int id);//list
         public IDataResult<SessionToStudent> getByStudentId(int id);
     }
 }

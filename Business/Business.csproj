@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="BusinessAspects\Autofac\" />
-    <Folder Include="DependencyResolves\Autofac\" />
     <Folder Include="ValidationRules\FluentValidation\" />
   </ItemGroup>
 

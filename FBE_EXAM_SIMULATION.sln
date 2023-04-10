@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entiti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "..\..\..\..\..\Source\Repos\acarbey02400\SauDoorValidationSystem\Core\Core.csproj", "{080631A4-331C-4D12-8088-34013DDE2924}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{50EE9DA9-A7DA-4E46-9801-2933EE2A81CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{080631A4-331C-4D12-8088-34013DDE2924}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{080631A4-331C-4D12-8088-34013DDE2924}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{080631A4-331C-4D12-8088-34013DDE2924}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50EE9DA9-A7DA-4E46-9801-2933EE2A81CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50EE9DA9-A7DA-4E46-9801-2933EE2A81CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50EE9DA9-A7DA-4E46-9801-2933EE2A81CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50EE9DA9-A7DA-4E46-9801-2933EE2A81CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
