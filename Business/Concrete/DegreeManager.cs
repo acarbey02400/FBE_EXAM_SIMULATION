@@ -26,6 +26,7 @@ namespace Business.Concrete
         public IResult delete(Degree degree)
         {
             degree.isDeleted = true;
+            _degreDal.Update(degree);
             return new SuccessResult();
         }
 

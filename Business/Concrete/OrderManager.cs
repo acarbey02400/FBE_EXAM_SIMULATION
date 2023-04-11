@@ -26,6 +26,7 @@ namespace Business.Concrete
         public IResult delete(Order order)
         {
             order.isDeleted = true;
+            _orderDal.Update(order);   
             return new SuccessResult();
         }
 

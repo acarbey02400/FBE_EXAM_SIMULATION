@@ -26,6 +26,7 @@ namespace Business.Concrete
         public IResult delete(Semester semester)
         {
             semester.isDeleted = true;
+            _semesterDal.Update(semester);
             return new SuccessResult();
         }
 
