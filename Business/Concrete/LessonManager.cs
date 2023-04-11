@@ -13,6 +13,10 @@ namespace Business.Concrete
     public class LessonManager : ILessonService
     {
         ILessonDal _lessonDal;
+        public LessonManager(ILessonDal lessonDal)
+        {
+            _lessonDal=lessonDal;
+        }
         public IResult add(Lesson lesson)
         {
             _lessonDal.Add(lesson);
