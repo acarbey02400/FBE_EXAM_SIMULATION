@@ -40,14 +40,14 @@ namespace Business.Concrete
            return new SuccessDataResult<SessionToStudent>(_sessionToStudentDal.Get(p=>p.Id == id)); 
         }
 
-        public IDataResult<SessionToStudent> getBySessionId(int id)
+        public IDataResult<List<SessionToStudent>> getBySessionId(int id)
         {
-            return new SuccessDataResult<SessionToStudent>(_sessionToStudentDal.Get(p=>p.SessionId==id));
+            return new SuccessDataResult<List<SessionToStudent>>(_sessionToStudentDal.GetAll(p=>p.SessionId==id));
         }
 
-        public IDataResult<SessionToStudent> getByStudentId(int id)
+        public IDataResult<List<SessionToStudent>> getByStudentId(int id)
         {
-            return new SuccessDataResult<SessionToStudent>(_sessionToStudentDal.Get(p=>p.StudentId == id)); 
+            return new SuccessDataResult<List<SessionToStudent>>(_sessionToStudentDal.GetAll(p=>p.StudentId == id)); 
         }
 
         public IResult update(SessionToStudent sessionToStudent)

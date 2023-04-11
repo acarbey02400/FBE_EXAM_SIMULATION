@@ -34,29 +34,29 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Exam>>(_examDal.GetAll());
         }
 
-        public IDataResult<Exam> getByFacultiyId(int id)
+        public IDataResult<List<Exam>> getByFacultiyId(int id)
         {
-            return new SuccessDataResult<Exam>(_examDal.Get(p=>p.FacultiyId == id));
+            return new SuccessDataResult<List<Exam>>(_examDal.GetAll(p => p.FacultiyId == id));
         }
 
         public IDataResult<Exam> getById(int id)
         {
-            return new SuccessDataResult<Exam>(_examDal.Get(p=>p.Id == id));
+            return new SuccessDataResult<Exam>(_examDal.Get(p => p.Id == id));
         }
 
         public IDataResult<List<Exam>> getByName(string name)
         {
-           return new SuccessDataResult<List<Exam>>(_examDal.GetAll(p=>p.Name == name)); 
+            return new SuccessDataResult<List<Exam>>(_examDal.GetAll(p => p.Name == name));
         }
 
-        public IDataResult<Exam> getBySemesterId(int id)
+        public IDataResult<List<Exam>> getBySemesterId(int id)
         {
-            return new SuccessDataResult<Exam>(_examDal.Get(p=>p.SemesterId == id));
+            return new SuccessDataResult<List<Exam>>(_examDal.GetAll(p => p.SemesterId == id));
         }
 
-        public IDataResult<Exam> getByYearId(int id)
+        public IDataResult<List<Exam>> getByYearId(int id)
         {
-            return new SuccessDataResult<Exam>(_examDal.Get(p=>p.YearId == id));
+            return new SuccessDataResult<List<Exam>>(_examDal.GetAll(p => p.YearId == id));
         }
 
         public IResult update(Exam exam)
