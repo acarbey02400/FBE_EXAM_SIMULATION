@@ -25,7 +25,7 @@ namespace Business.Concrete
 
         public IResult delete(LessonToStudent lessonToStudent)
         {
-           _lessonToStudentDal.Delete(lessonToStudent);
+           lessonToStudent.isDeleted = true;
             return new SuccessResult();
         }
 

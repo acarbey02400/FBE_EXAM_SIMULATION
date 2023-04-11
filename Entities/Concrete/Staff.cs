@@ -14,5 +14,6 @@ namespace Entities.Concrete
         public string? Name { get; set; }
         public string? SurName { get; set; }
         public int DegreeId { get; set; }
+        public bool isDeleted { get; set; } = false;
     }
 }

@@ -25,7 +25,7 @@ namespace Business.Concrete
 
         public IResult delete(Session session)
         {
-            _sessionDal.Delete(session);
+            session.isDeleted = true;
             return new SuccessResult();
         }
 

@@ -10,6 +10,7 @@ namespace Entities.Concrete
 {
     public class Degree:IEntity
     {
+        public bool isDeleted { get; set; } = false;
         public int Id { get; set; }
         public string Name { get; set; }
     }

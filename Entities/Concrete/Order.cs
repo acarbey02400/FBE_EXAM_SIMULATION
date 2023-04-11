@@ -12,5 +12,6 @@ namespace Entities.Concrete
     {
         public int Id { get; set; }
         public string? OrderNo { get; set; }
+        public bool isDeleted { get; set; } = false;
     }
 }

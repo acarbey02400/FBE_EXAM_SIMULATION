@@ -25,7 +25,7 @@ namespace Business.Concrete
 
         public IResult delete(Year year)
         {
-            _yearDal.Delete(year);
+            year.isDeleted = true;
             return new SuccessResult();
         }
 

@@ -13,6 +13,7 @@ namespace Entities.Concrete
         public int Id { get; set; }
         public int SessionId { get; set; }
         public int StudentId { get; set; }
+        public bool isDeleted { get; set; } = false;
 
     }
 }

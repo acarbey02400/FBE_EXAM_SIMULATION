@@ -25,7 +25,7 @@ namespace Business.Concrete
 
         public IResult delete(Classrom classrom)
         {
-            _classromDal.Delete(classrom);
+            classrom.isDeleted=true;
             return new SuccessResult();
         }
 

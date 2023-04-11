@@ -25,7 +25,7 @@ namespace Business.Concrete
 
         public IResult delete(Exam exam)
         {
-            _examDal.Delete(exam);
+            exam.isDeleted = true;
             return new SuccessResult();
         }
 

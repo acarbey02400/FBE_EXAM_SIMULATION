@@ -25,7 +25,7 @@ namespace Business.Concrete
 
         public IResult delete(Staff staff)
         {
-            _staffDal.Delete(staff);
+            staff.isDeleted = true;
             return new SuccessResult();
         }
 

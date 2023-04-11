@@ -25,7 +25,7 @@ namespace Business.Concrete
 
         public IResult delete(TeachingOfType teachingOfType)
         {
-            _teachingOfTypeDal.Delete(teachingOfType);
+            teachingOfType.isDeleted = true;
             return new SuccessResult();
         }
 

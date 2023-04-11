@@ -16,6 +16,6 @@ namespace Entities.Concrete
         public int YearId { get; set; }
         public int SemesterId { get; set; }
 
-
+        public bool isDeleted { get; set; } = false;
     }
 }

@@ -21,5 +21,6 @@ namespace Entities.Concrete
         public int YearId { get; set; }
         public int TypeExamId { get; set; }
         public int ExamId { get; set; }
+        public bool isDeleted { get; set; } = false;
     }
 }
