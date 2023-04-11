@@ -31,6 +31,8 @@ namespace DataAccess.Context
         public DbSet<TeachingOfType> TeachingOfTypes { get; set; }
         public DbSet<TypeOfExam> TypeOfExams { get; set; }
         public DbSet<Year> Years { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserType> UserTypes { get; set; }
 
     }
 }

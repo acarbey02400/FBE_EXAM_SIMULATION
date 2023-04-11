@@ -26,6 +26,19 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("getsessiondetails")]
+        public IActionResult GetSessionDetails()
+        {
+
+            var result = _sessionService.getSessionDetails();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
         [HttpGet("getbyid")]
         public IActionResult GetById(int Id)
         {

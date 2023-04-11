@@ -1,5 +1,6 @@
 ﻿using Core.Utilities;
 using Entities.Concrete;
+using Entities.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,5 +25,6 @@ namespace Business.Abstract
         public IDataResult <List<Lesson>> getByTypeExamId(int id);
         public IDataResult <List<Lesson>> getByExamId(int id);
         public IDataResult<List<Session>> getByExamDateTime(DateTime dateTime);
+        public IDataResult<List<LessonDetailDto>> getLessonDetails();
     }
 }

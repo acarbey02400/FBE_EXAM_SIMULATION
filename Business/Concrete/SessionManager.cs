@@ -2,6 +2,7 @@
 using Core.Utilities;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace Business.Concrete
         ISessionDal _sessionDal;
         public SessionManager(ISessionDal sessionDal)
         {
-            _sessionDal=sessionDal;
+            _sessionDal = sessionDal;
         }
         public IResult add(Session session)
         {
@@ -30,6 +31,11 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        public IDataResult<List<SessionDetailDto>> getSessionDetails()
+        {
+            return new SuccessDataResult<List<SessionDetailDto>>(_sessionDal.GetSessionDetails());
+        }
+
         public IDataResult<List<Session>> getAll()
         {
             return new SuccessDataResult<List<Session>>(_sessionDal.GetAll());
@@ -42,12 +48,12 @@ namespace Business.Concrete
 
         public IDataResult<Session> getByExamId(int id)
         {
-            return new SuccessDataResult<Session>(_sessionDal.Get(p=>p.ExamId == id));
+            return new SuccessDataResult<Session>(_sessionDal.Get(p => p.ExamId == id));
         }
 
         public IDataResult<Session> getById(int id)
         {
-            return new SuccessDataResult<Session>(_sessionDal.Get(p=>p.Id == id));
+            return new SuccessDataResult<Session>(_sessionDal.Get(p => p.Id == id));
         }
 
         public IResult update(Session session)

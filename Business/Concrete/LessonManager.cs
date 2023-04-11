@@ -2,6 +2,7 @@
 using Core.Utilities;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,11 @@ namespace Business.Concrete
             lesson.isDeleted = true;
             _lessonDal.Update(lesson);
             return new SuccessResult();
+        }
+
+        public IDataResult<List<LessonDetailDto>> getLessonDetails()
+        {
+            return new SuccessDataResult<List<LessonDetailDto>>(_lessonDal.GetLessonDetails());
         }
 
         public IDataResult<List<Lesson>> getAll()

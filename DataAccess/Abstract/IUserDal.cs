@@ -1,6 +1,5 @@
 ﻿using Core.DataAccess.EntityFramework.Abstract;
 using Entities.Concrete;
-using Entities.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface ISessionDal : IEntityRepository<Session>
+    public interface IUserDal : IEntityRepository<User>
     {
-        public List<SessionDetailDto> GetSessionDetails();
     }
 }

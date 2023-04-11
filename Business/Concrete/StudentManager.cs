@@ -2,6 +2,7 @@
 using Core.Utilities;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace Business.Concrete
         public IResult delete(Student student)
         {
             student.isDeleted = true;
-            _studentDal.Update(student);    
+            _studentDal.Update(student);
             return new SuccessResult();
         }
 
@@ -37,57 +38,62 @@ namespace Business.Concrete
 
         public IDataResult<List<Student>> getByClassromId(int ClassromId)
         {
-            return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p=>p.ClassromId==ClassromId));
+            return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p => p.ClassromId == ClassromId));
         }
 
         public IDataResult<List<Student>> getByDepartmentId(int departmentId)
         {
-            return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p=>p.DepartmentId==departmentId));
+            return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p => p.DepartmentId == departmentId));
         }
 
         public IDataResult<List<Student>> getByFacultyId(int facultyId)
         {
-            return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p=>p.FacultyId==facultyId));
+            return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p => p.FacultyId == facultyId));
         }
 
         public IDataResult<Student> getById(int id)
         {
-            return new SuccessDataResult<Student>(_studentDal.Get(p=>p.Id==id));
+            return new SuccessDataResult<Student>(_studentDal.Get(p => p.Id == id));
         }
 
         public IDataResult<List<Student>> getByName(string name)
         {
-            return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p=>p.Name==name));
+            return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p => p.Name == name));
         }
 
         public IDataResult<Student> getByNumber(string number)
         {
-            return new SuccessDataResult<Student>(_studentDal.Get(p=>p.Number==number));
+            return new SuccessDataResult<Student>(_studentDal.Get(p => p.Number == number));
         }
 
         public IDataResult<List<Student>> getByOrderId(int OrderId)
         {
-            return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p=>p.OrderId == OrderId));
+            return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p => p.OrderId == OrderId));
         }
 
         public IDataResult<List<Student>> getBySemesterId(int SemesterId)
         {
-            return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p=>p.SemesterId==SemesterId));
+            return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p => p.SemesterId == SemesterId));
         }
 
         public IDataResult<List<Student>> getBySurname(string surname)
         {
-            return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p=>p.Surname==surname));
+            return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p => p.Surname == surname));
         }
 
         public IDataResult<List<Student>> getByTeachTypeId(int TeachTypeId)
         {
-            return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p=>p.TeachTypeId==TeachTypeId));
+            return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p => p.TeachTypeId == TeachTypeId));
         }
 
         public IDataResult<List<Student>> getByYearId(int yearId)
         {
-            return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p=>p.YearId==yearId));
+            return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p => p.YearId == yearId));
+        }
+
+        public IDataResult<List<StudentDetailDto>> getStudentDetails()
+        {
+            return new SuccessDataResult<List<StudentDetailDto>>(_studentDal.GetStudentDetails());
         }
 
         public IResult update(Student student)

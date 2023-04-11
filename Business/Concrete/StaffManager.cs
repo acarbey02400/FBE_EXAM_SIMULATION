@@ -2,6 +2,7 @@
 using Core.Utilities;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,11 @@ namespace Business.Concrete
             staff.isDeleted = true;
             _staffDal.Update(staff);
             return new SuccessResult();
+        }
+
+        public IDataResult<List<StaffDetailDto>> geStaffDetails()
+        {
+            return new SuccessDataResult<List<StaffDetailDto>>(_staffDal.GetStaffDetails());
         }
 
         public IDataResult<List<Staff>> getAll()

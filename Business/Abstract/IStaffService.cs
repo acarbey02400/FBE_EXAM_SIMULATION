@@ -1,5 +1,6 @@
 ﻿using Core.Utilities;
 using Entities.Concrete;
+using Entities.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,6 @@ namespace Business.Abstract
         public IDataResult<List<Staff>> getByName(string name);
         public IDataResult<Staff> getById(int id);
         public IDataResult<List<Staff>> getByDegreeId(int id);
+        public IDataResult<List<StaffDetailDto>> geStaffDetails();
     }
 }

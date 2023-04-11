@@ -35,7 +35,7 @@ namespace Business.DependencyResolves.Autofac
             builder.RegisterType<StudentManager>().As<IStudentService>();
             builder.RegisterType<TeachingOfTypeManager>().As<ITeachingOfTypeService>();
             builder.RegisterType<YearManager>().As<IYearService>();
-
+            builder.RegisterType<TypeOfExamManager>().As<ITypeOfExamService>();
 
             //Dal
             builder.RegisterType<EfClassromDal>().As<IClassromDal>();
@@ -53,7 +53,8 @@ namespace Business.DependencyResolves.Autofac
             builder.RegisterType<EfStudentDal>().As<IStudentDal>();
             builder.RegisterType<EfTeachingOfTypeDal>().As<ITeachingOfTypeDal>();
             builder.RegisterType<EfYearDal>().As<IYearDal>();
-        
+            builder.RegisterType<EfTypeOfExamDal>().As<ITypeOfExamDal>();
+
 
 
             //builder.RegisterType<AuthManager>().As<IAuthService>();
