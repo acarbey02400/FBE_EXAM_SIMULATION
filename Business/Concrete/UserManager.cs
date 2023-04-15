@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Utilities.Results;
+using Core.Entities.Concrete;
 
 namespace Business.Concrete
 {
@@ -46,13 +48,22 @@ namespace Business.Concrete
                 return new SuccessDataResult<User>(_userDal.Get(p => p.id == id));
             }
 
-            public IDataResult<List<User>> getByTypeId(int UserType)
+        public User GetByMail(string email)
+        {
+            return _userDal.Get(u => u.eMail == email);
+        }
+
+        public IDataResult<List<User>> getByTypeId(int UserType)
             {
                 return new SuccessDataResult<List<User>>(_userDal.GetAll(p => p.userTypeId == UserType));
             }
 
+        public List<Core.Entities.Concrete.OperationClaim> GetClaims(User user)
+        {
+            return _userDal.GetClaims(user);
+        }
 
-            public IResult update(User user)
+        public IResult update(User user)
             {
 
                 _userDal.Update(user);

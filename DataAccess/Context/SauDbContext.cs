@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.Entities.Concrete;
+using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,9 @@ namespace DataAccess.Context
         public DbSet<TeachingOfType> TeachingOfTypes { get; set; }
         public DbSet<TypeOfExam> TypeOfExams { get; set; }
         public DbSet<Year> Years { get; set; }
+        public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
         public DbSet<UserType> UserTypes { get; set; }
 
     }

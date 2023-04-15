@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +8,7 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [DisableCors]
     public class StaffsController : ControllerBase
     {
         IStaffService _staffService;
@@ -26,7 +28,7 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-
+        [DisableCors]
         [HttpGet("getstaffdetails")]
         public IActionResult GetStaffDetails()
         {

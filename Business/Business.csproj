@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="BusinessAspects\Autofac\" />
     <Folder Include="ValidationRules\FluentValidation\" />
   </ItemGroup>
 
@@ -18,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\Source\Repos\acarbey02400\SauDoorValidationSystem\Core\Core.csproj" />
+    <ProjectReference Include="..\..\acarbey02400\FinalProject\Core\Core.csproj" />
     <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
     <ProjectReference Include="..\Entities\Entities.csproj" />
   </ItemGroup>

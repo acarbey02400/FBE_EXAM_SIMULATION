@@ -4,8 +4,11 @@ using Business.Abstract;
 using Business.Concrete;
 using Castle.DynamicProxy;
 using Core.Utilities.Interceptors;
+using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -36,7 +39,8 @@ namespace Business.DependencyResolves.Autofac
             builder.RegisterType<TeachingOfTypeManager>().As<ITeachingOfTypeService>();
             builder.RegisterType<YearManager>().As<IYearService>();
             builder.RegisterType<TypeOfExamManager>().As<ITypeOfExamService>();
-
+            builder.RegisterType<UserManager>().As<IUserService>();
+            builder.RegisterType<UserTypeManager>().As<IUserTypeService>();
             //Dal
             builder.RegisterType<EfClassromDal>().As<IClassromDal>();
             builder.RegisterType<EfDegreeDal>().As<IDegreeDal>();
@@ -54,11 +58,12 @@ namespace Business.DependencyResolves.Autofac
             builder.RegisterType<EfTeachingOfTypeDal>().As<ITeachingOfTypeDal>();
             builder.RegisterType<EfYearDal>().As<IYearDal>();
             builder.RegisterType<EfTypeOfExamDal>().As<ITypeOfExamDal>();
+            builder.RegisterType<EfUserTypeDal>().As<IUserTypeDal>();
+            builder.RegisterType<EfUserDal>().As<IUserDal>();
 
-
-
-            //builder.RegisterType<AuthManager>().As<IAuthService>();
-            //builder.RegisterType<JwtHelper>().As<ITokenHelper>();
+            builder.RegisterType<AuthManager>().As<IAuthService>();
+            builder.RegisterType<JwtHelper>().As<ITokenHelper>();
+            
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()

@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\Source\Repos\acarbey02400\SauDoorValidationSystem\Core\Core.csproj" />
+    <ProjectReference Include="..\..\acarbey02400\FinalProject\Core\Core.csproj" />
   </ItemGroup>
 
 </Project>
