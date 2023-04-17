@@ -13,7 +13,7 @@ namespace DataAccess.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=SauExamSimulationDb;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=tcp:sauexamfbe.database.windows.net,1433;Initial Catalog=SauExamSimulationDb;Persist Security Info=False;User ID=acarbey02400;Password=Acar12345;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         }
 
         public DbSet<Classrom> Classroms { get; set; }
@@ -36,6 +36,7 @@ namespace DataAccess.Context
         public DbSet<User> Users { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
         public DbSet<UserType> UserTypes { get; set; }
+
 
     }
 }
