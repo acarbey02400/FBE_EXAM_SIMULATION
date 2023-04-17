@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Core.Utilities;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
+    [SecuredOperation("admin")]
     public class StaffManager : IStaffService
     {
         IStaffDal _staffDal;

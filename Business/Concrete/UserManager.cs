@@ -11,10 +11,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.Utilities.Results;
 using Core.Entities.Concrete;
+using Business.BusinessAspects.Autofac;
 
 namespace Business.Concrete
 {
-        public class UserManager : IUserService
+    [SecuredOperation("admin")]
+    public class UserManager : IUserService
         {
             IUserDal _userDal;
 
