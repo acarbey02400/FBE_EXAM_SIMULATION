@@ -16,6 +16,9 @@ using Microsoft.OpenApi.Models;
 using System.Net;
 using System.Reflection;
 using Swashbuckle.Swagger;
+using System.Diagnostics;
+using NLog.Web;
+using WebAPI.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,12 +27,19 @@ string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+
+var logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
+
+builder.Logging.ClearProviders();
+builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
+builder.Host.UseNLog();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddTransient<AuthController>();
 builder.Services.AddSwaggerGen(
   c =>
   {
-      c.SwaggerDoc("v1", new OpenApiInfo {  Title = "You api title",  Version = "v1" });
+      c.SwaggerDoc("v1", new OpenApiInfo { Title = "You api title", Version = "v1" });
       c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
       {
           Description = @"JWT Authorization header using the Bearer scheme. \r\n\r\n 
@@ -59,7 +69,7 @@ builder.Services.AddSwaggerGen(
             new List<string>()
           }
         });
-     
+
   }
     );
 builder.Services.AddControllers();

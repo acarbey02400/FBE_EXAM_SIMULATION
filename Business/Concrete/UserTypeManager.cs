@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
-    [SecuredOperation("admin")]
     public class UserTypeManager : IUserTypeService
     {
         IUserTypeDal _userTypeDal;

@@ -1,0 +1,33 @@
+2023-04-19 17:23:38.1592 Info Message Template Auto Format enabled
+2023-04-19 17:23:38.1677 Info Loading assembly: NLog.Web.AspNetCore
+2023-04-19 17:23:38.1677 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Unrecognized element 'add' from section 'NLog'
+2023-04-19 17:23:38.1885 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target of type: Database
+ ---> System.ArgumentException: Target type-alias is unknown: 'Database'. Extension NLog.Database not included?
+   at NLog.Config.Factory`2.CreateInstance(String itemName)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String classType, INamedItemFactory`2 factory)
+   --- End of inner exception stack trace ---
+2023-04-19 17:23:38.2284 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'dbase' not found for logging rule: *.
+2023-04-19 17:23:38.2488 Info Validating config: Targets=0, ConfigItems=2, FilePath=C:\Users\İbrahim Halil Acar\Source\Repos\FBE_EXAM_SIMULATION\WebAPI\bin\Debug\net6.0\nlog.config
+2023-04-19 17:23:38.6074 Info Loading NLog config from XML file: C:\Users\İbrahim Halil Acar\Source\Repos\FBE_EXAM_SIMULATION\WebAPI\NLog.config
+2023-04-19 17:23:38.6074 Info Message Template Auto Format enabled
+2023-04-19 17:23:38.6074 Info Loading assembly: NLog.Web.AspNetCore
+2023-04-19 17:23:38.6074 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Unrecognized element 'add' from section 'NLog'
+2023-04-19 17:23:38.6074 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target of type: Database
+ ---> System.ArgumentException: Target type-alias is unknown: 'Database'. Extension NLog.Database not included?
+   at NLog.Config.Factory`2.CreateInstance(String itemName)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String classType, INamedItemFactory`2 factory)
+   --- End of inner exception stack trace ---
+2023-04-19 17:23:38.6074 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'dbase' not found for logging rule: *.
+2023-04-19 17:23:38.6074 Info Closing old configuration.
+2023-04-19 17:23:38.6743 Info Validating config: Targets=0, ConfigItems=2, FilePath=C:\Users\İbrahim Halil Acar\Source\Repos\FBE_EXAM_SIMULATION\WebAPI\NLog.config
+2023-04-19 17:30:32.1956 Info Message Template Auto Format enabled
+2023-04-19 17:30:32.1956 Info Loading assembly: NLog.Web.AspNetCore
+2023-04-19 17:30:32.2146 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Unrecognized element 'add' from section 'NLog'
+2023-04-19 17:30:32.2146 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target of type: Database
+ ---> System.ArgumentException: Target type-alias is unknown: 'Database'. Extension NLog.Database not included?
+   at NLog.Config.Factory`2.CreateInstance(String itemName)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String classType, INamedItemFactory`2 factory)
+   --- End of inner exception stack trace ---
+2023-04-19 17:30:32.2621 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'dbase' not found for logging rule: *.
+2023-04-19 17:30:32.2825 Info Validating config: Targets=0, ConfigItems=2, FilePath=C:\Users\İbrahim Halil Acar\Source\Repos\FBE_EXAM_SIMULATION\WebAPI\bin\Debug\net6.0\nlog.config
+2023-04-19 17:30:32.6984 Info Loading NLog config from XML file: C:\Users\İbrahim Halil Acar\Source\Repos\FBE_EXAM_SIMULATION\WebAPI\NLog.config

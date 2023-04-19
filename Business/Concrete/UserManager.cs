@@ -15,7 +15,7 @@ using Business.BusinessAspects.Autofac;
 
 namespace Business.Concrete
 {
-    [SecuredOperation("admin")]
+    
     public class UserManager : IUserService
         {
             IUserDal _userDal;
