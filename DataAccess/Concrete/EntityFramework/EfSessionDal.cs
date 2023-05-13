@@ -27,7 +27,8 @@ namespace DataAccess.Concrete.EntityFramework
                                  SessionId = ses.Id,
                                  SessionName = ses.Name,
                                  ExamName = e.Name,
-                                 isDeleted = ses.isDeleted
+                                 isDeleted = ses.isDeleted,
+                                 SessionTime = ses.SessionTime,
                              };
                 return result.ToList();
             }

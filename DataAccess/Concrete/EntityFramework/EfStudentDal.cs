@@ -32,6 +32,8 @@ namespace DataAccess.Concrete.EntityFramework
                              on st.ClassromId equals cr.Id
                              join od in context.Orders
                              on st.OrderId equals od.Id
+                             join ex in context.Exams
+                             on st.ExamId equals ex.Id
                              select new StudentDetailDto
                              {
                                  ClassromName = cr.ClassromNo,
@@ -45,6 +47,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  StudentNumber = st.Number,
                                  StudentSurname = st.Surname,
                                  TeachTypeName = tp.Name,
+                                 ExamName=ex.Name,
                                  YearName = yr.DateTime.ToString()
                              };
                 return result.ToList();

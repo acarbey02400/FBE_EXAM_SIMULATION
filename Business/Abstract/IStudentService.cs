@@ -27,6 +27,7 @@ namespace Business.Abstract
         public IDataResult<List<Student>> getByTeachTypeId(int TeachTypeId);
         public IDataResult<List<Student>> getByClassromId(int ClassromId);
         public IDataResult<List<Student>> getByOrderId(int OrderId);
+        public IDataResult<List<Student>> getByExamId(int ExamId);
         public IDataResult<List<StudentDetailDto>> getStudentDetails();
     }
 }

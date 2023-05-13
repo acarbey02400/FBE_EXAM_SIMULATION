@@ -20,6 +20,7 @@ namespace Entities.Concrete
         public int TeachTypeId { get; set; }
         public int ClassromId { get; set; }
         public int OrderId { get; set; }
+        public int ExamId { get; set; }
         public bool isDeleted { get; set; } = false;
 
     }

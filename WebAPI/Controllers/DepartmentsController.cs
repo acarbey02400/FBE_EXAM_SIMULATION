@@ -7,10 +7,10 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DeparmentsController : ControllerBase
+    public class DepartmentsController : ControllerBase
     {
         IDepartmentService _departmentService;
-        public DeparmentsController(IDepartmentService departmentService)
+        public DepartmentsController(IDepartmentService departmentService)
         {
             _departmentService = departmentService;
         }

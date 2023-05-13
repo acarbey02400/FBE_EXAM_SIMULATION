@@ -20,6 +20,7 @@ namespace Entities.Dto
         public string? TeachTypeName { get; set; }
         public string? ClassromName { get; set; }
         public string? OrderName { get; set; }
+        public string? ExamName { get; set; }
         public bool isDeleted { get; set; }
     }
 }

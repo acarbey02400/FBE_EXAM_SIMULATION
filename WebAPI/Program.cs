@@ -15,7 +15,6 @@ using Core.Utilities.HeaderParameter;
 using Microsoft.OpenApi.Models;
 using System.Net;
 using System.Reflection;
-using Swashbuckle.Swagger;
 using System.Diagnostics;
 using NLog.Web;
 using WebAPI.Controllers;
@@ -72,6 +71,7 @@ builder.Services.AddSwaggerGen(
 
   }
     );
+
 builder.Services.AddControllers();
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
@@ -114,8 +114,23 @@ builder.Services.AddCors(options =>
                     .AllowAnyMethod().SetIsOriginAllowed(origin => true);
                           policy.WithOrigins("http://194.27.244.133:443").AllowAnyHeader()
                     .AllowAnyMethod().SetIsOriginAllowed(origin => true);
+                          policy.WithOrigins("http://127.0.0.1:7067").AllowAnyHeader()
+                   .AllowAnyMethod().SetIsOriginAllowed(origin => true);
+                          policy.WithOrigins("https://localhost:7067").AllowAnyHeader()
+                   .AllowAnyMethod().SetIsOriginAllowed(origin => true);
                           policy.WithOrigins("*").AllowAnyHeader()
                    .AllowAnyMethod().SetIsOriginAllowed(origin => true);
+                          policy.WithOrigins("https://78.189.143.34:443").AllowAnyHeader()
+                    .AllowAnyMethod().SetIsOriginAllowed(origin => true);
+                          policy.WithOrigins("https://78.189.143.34:7067").AllowAnyHeader()
+                .AllowAnyMethod().SetIsOriginAllowed(origin => true);
+                  policy.WithOrigins("http://78.189.143.34:80").AllowAnyHeader()
+                .AllowAnyMethod().SetIsOriginAllowed(origin => true);
+                          policy.WithOrigins("https://88.230.173.137/443").AllowAnyHeader()
+               .AllowAnyMethod().SetIsOriginAllowed(origin => true);
+                          policy.WithOrigins("http://88.230.173.137/80").AllowAnyHeader()
+              .AllowAnyMethod().SetIsOriginAllowed(origin => true);
+
                       });
 });
 
@@ -126,13 +141,17 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Lotus.API.Integration v1"));
 }
+app.UseRouting();
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseDefaultFiles();
 app.MapControllers();
+app.MapControllerRoute(
+    name: "default",
+   pattern: "{controller=swagger}/{action=Index}/{id?}");
 app.UseCors(MyAllowSpecificOrigins);
 app.Run();

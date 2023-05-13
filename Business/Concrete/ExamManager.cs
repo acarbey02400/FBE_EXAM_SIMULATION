@@ -38,6 +38,11 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Exam>>(_examDal.GetAll());
         }
 
+        public IDataResult<List<Exam>> getByDepartmentId(int id)
+        {
+            return new SuccessDataResult<List<Exam>>(_examDal.GetAll(p => p.DepartmentId == id));
+        }
+
         public IDataResult<List<Exam>> getByFacultiyId(int id)
         {
             return new SuccessDataResult<List<Exam>>(_examDal.GetAll(p => p.FacultiyId == id));

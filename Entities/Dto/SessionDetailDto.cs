@@ -13,6 +13,7 @@ namespace Entities.Dto
         public string? SessionName { get; set; }
         public DateTime DateTime { get; set; }
         public string? ExamName { get; set; }
+        public int SessionTime { get; set; }
         public bool isDeleted { get; set; }
     }
 }

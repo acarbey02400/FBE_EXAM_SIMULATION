@@ -49,6 +49,11 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p => p.DepartmentId == departmentId));
         }
 
+        public IDataResult<List<Student>> getByExamId(int ExamId)
+        {
+            return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p=>p.ExamId == ExamId));
+        }
+
         public IDataResult<List<Student>> getByFacultyId(int facultyId)
         {
             return new SuccessDataResult<List<Student>>(_studentDal.GetAll(p => p.FacultyId == facultyId));
