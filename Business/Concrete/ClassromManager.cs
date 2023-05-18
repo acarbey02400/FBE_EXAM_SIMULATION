@@ -35,7 +35,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Classrom>> getAll()
         {
-            return new SuccessDataResult<List<Classrom>>(_classromDal.GetAll()); 
+            return new SuccessDataResult<List<Classrom>>(_classromDal.GetAll());
         }
 
         public IDataResult<List<Classrom>> getByClassNo(string classNo)
