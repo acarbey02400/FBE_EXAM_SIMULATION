@@ -21,7 +21,7 @@ namespace Business.Abstract
         public IDataResult<Lesson> getByLessonCode(string code);
         public IDataResult <List<Lesson>> getByDepartmentId(int id);
         public IDataResult<List<Lesson>> getByStaffId(int id);
-        public IDataResult<Lesson> getBySessionId(int id);
+        public IDataResult <List<Lesson>> getBySessionId(int id);
         public IDataResult <List<Lesson>> getBySemesterId(int id);
         public IDataResult <List<Lesson>> getByTypeExamId(int id);
         public IDataResult <List<Lesson>> getByExamId(int id);

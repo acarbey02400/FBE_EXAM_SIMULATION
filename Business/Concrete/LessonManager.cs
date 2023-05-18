@@ -79,9 +79,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Lesson>>(_lessonDal.GetAll(p=>p.SemesterId== id));
         }
 
-        public IDataResult<Lesson> getBySessionId(int id)
+        public IDataResult <List<Lesson>> getBySessionId(int id)
         {
-            return new SuccessDataResult<Lesson>(_lessonDal.Get(p=>p.Id== id));
+            return new SuccessDataResult<List<Lesson>>(_lessonDal.GetAll(p=>p.Id== id));
         }
 
         public IDataResult<List<Lesson>> getByStaffId(int id)
