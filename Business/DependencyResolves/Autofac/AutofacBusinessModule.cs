@@ -28,6 +28,7 @@ namespace Business.DependencyResolves.Autofac
             builder.RegisterType<ExamManager>().As<IExamService>().SingleInstance();
             //SingleInstance ben ekledim
             builder.RegisterType<FacultiyManager>().As<IFacultiyService>();
+            builder.RegisterType<ExcelManager>().As<IExcelService>();
             builder.RegisterType<LessonManager>().As<ILessonService>();
             builder.RegisterType<LessonToStudentManager>().As<IlessonToStudentService>();
             builder.RegisterType<OrderManager>().As<IOrderService>();
