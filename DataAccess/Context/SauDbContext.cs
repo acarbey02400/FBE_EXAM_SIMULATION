@@ -13,7 +13,7 @@ namespace DataAccess.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=tcp:sauexamfbe.database.windows.net,1433;Initial Catalog=SauExamSimulationDb;Persist Security Info=False;User ID=acarbey02400;Password=Acar12345;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            optionsBuilder.UseSqlServer(@$"Server=(localdb)\MSSQLLocalDB;Database=SauExamSimulationDb;Integrated Security=true;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite; MultiSubnetFailover=False;");
         }
 
         public DbSet<Classrom> Classroms { get; set; }

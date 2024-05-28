@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(SauDbContext))]
-    [Migration("20230513105235_migration213")]
-    partial class migration213
+    [Migration("20240222145255_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,6 +31,9 @@ namespace DataAccess.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
@@ -53,6 +56,9 @@ namespace DataAccess.Migrations
 
                     b.Property<string>("firstName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("lastName")
                         .HasColumnType("nvarchar(max)");
@@ -81,6 +87,9 @@ namespace DataAccess.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<int>("operationClaimId")
                         .HasColumnType("int");
@@ -477,6 +486,9 @@ namespace DataAccess.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 

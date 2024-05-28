@@ -21,6 +21,7 @@ namespace Entities.Concrete
         public int ClassromId { get; set; }
         public int OrderId { get; set; }
         public int ExamId { get; set; }
+        public IEnumerable<Lesson>? Lessons { get; set; }
         public bool isDeleted { get; set; } = false;
 
     }

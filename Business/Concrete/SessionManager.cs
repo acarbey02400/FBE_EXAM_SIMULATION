@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.BusinessAspects.Autofac;
+using Business.BusinessRules;
 using Core.Utilities;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -17,9 +18,11 @@ namespace Business.Concrete
     public class SessionManager : ISessionService
     {
         ISessionDal _sessionDal;
-        public SessionManager(ISessionDal sessionDal)
+        SessionBusinessRules _sessionBusinessRules;
+        public SessionManager(ISessionDal sessionDal, SessionBusinessRules sessionBusinessRules)
         {
             _sessionDal = sessionDal;
+            _sessionBusinessRules = sessionBusinessRules;
         }
         public IResult add(Session session)
         {
@@ -63,6 +66,10 @@ namespace Business.Concrete
         {
             _sessionDal.Update(session);
             return new SuccessResult();
+        }
+        public IResult CheckSessionTime(List<Lesson> lessons)
+        {
+            return new SuccessDataResult<int>(_sessionBusinessRules.CheckSessionTime(lessons));
         }
     }
 }

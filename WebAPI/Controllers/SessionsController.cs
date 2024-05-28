@@ -113,5 +113,12 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+        [HttpPost("checkSessionTime")]
+        public IActionResult CheckSessionTime([FromBody] List<Lesson> lessons) 
+        {
+            var result = _sessionService.CheckSessionTime(lessons);
+            if (result.Success) { return Ok(result); }
+            return BadRequest(result);
+        }
     }
 }

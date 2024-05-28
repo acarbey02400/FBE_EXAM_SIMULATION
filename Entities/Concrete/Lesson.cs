@@ -20,5 +20,6 @@ namespace Entities.Concrete
         public int YearId { get; set; }
         public int LessonTime { get; set; }
         public bool isDeleted { get; set; } = false;
+        public IEnumerable<Student>? Students { get; set; }
     }
 }

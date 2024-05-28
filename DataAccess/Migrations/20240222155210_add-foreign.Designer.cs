@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(SauDbContext))]
-    [Migration("20230522110140_dbbb")]
-    partial class dbbb
+    [Migration("20240222155210_add-foreign")]
+    partial class addforeign
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -512,6 +512,36 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Years");
+                });
+
+            modelBuilder.Entity("LessonStudent", b =>
+                {
+                    b.Property<int>("LessonsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StudentsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("LessonsId", "StudentsId");
+
+                    b.HasIndex("StudentsId");
+
+                    b.ToTable("LessonStudent");
+                });
+
+            modelBuilder.Entity("LessonStudent", b =>
+                {
+                    b.HasOne("Entities.Concrete.Lesson", null)
+                        .WithMany()
+                        .HasForeignKey("LessonsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Concrete.Student", null)
+                        .WithMany()
+                        .HasForeignKey("StudentsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

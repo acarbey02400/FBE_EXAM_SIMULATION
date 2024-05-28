@@ -18,6 +18,10 @@ using System.Reflection;
 using System.Diagnostics;
 using NLog.Web;
 using WebAPI.Controllers;
+using Microsoft.Extensions.DependencyInjection;
+using DataAccess.Context;
+using Microsoft.EntityFrameworkCore;
+using Business.BusinessRules;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +39,7 @@ builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
 builder.Host.UseNLog();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddTransient<AuthController>();
+builder.Services.AddTransient<SessionBusinessRules>();
 builder.Services.AddSwaggerGen(
   c =>
   {

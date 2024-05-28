@@ -511,6 +511,36 @@ namespace DataAccess.Migrations
 
                     b.ToTable("Years");
                 });
+
+            modelBuilder.Entity("LessonStudent", b =>
+                {
+                    b.Property<int>("LessonsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StudentsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("LessonsId", "StudentsId");
+
+                    b.HasIndex("StudentsId");
+
+                    b.ToTable("LessonStudent");
+                });
+
+            modelBuilder.Entity("LessonStudent", b =>
+                {
+                    b.HasOne("Entities.Concrete.Lesson", null)
+                        .WithMany()
+                        .HasForeignKey("LessonsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Concrete.Student", null)
+                        .WithMany()
+                        .HasForeignKey("StudentsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
 #pragma warning restore 612, 618
         }
     }

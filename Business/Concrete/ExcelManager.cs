@@ -13,19 +13,22 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
-    //[SecuredOperation("admin")]
+    [SecuredOperation("admin")]
     public class ExcelManager : IExcelService
     {
         ILessonService _lessonService;
         IStudentService _studentService;
         IDepartmentService _departmentService;
         ITeachingOfTypeService _teachingOfTypeService;
-        public ExcelManager(ILessonService service,IStudentService studentService,IDepartmentService departmentService,ITeachingOfTypeService teachingOfTypeService)
+        IlessonToStudentService _lessonToStudentService;
+        public ExcelManager(ILessonService service,IStudentService studentService, IDepartmentService departmentService, ITeachingOfTypeService teachingOfTypeService, IlessonToStudentService lessonToStudentService)
         {
             _lessonService = service;
             _studentService = studentService;
             _departmentService = departmentService;
             _teachingOfTypeService = teachingOfTypeService;
+            _lessonToStudentService = lessonToStudentService;
+
         }
         private DataSet dataSet;
 
@@ -93,6 +96,11 @@ namespace Business.Concrete
                     student1.DepartmentId = departments.Data.Where(p=>p.Name==dataSet.Tables[0].Rows[i].ItemArray[0].ToString()).FirstOrDefault().Id;
                     student1.TeachTypeId = teachingOfTypes.Data.Where(p => p.Name==dataSet.Tables[0].Rows[i].ItemArray[4].ToString()).FirstOrDefault().Id;
                     _studentService.add(student1);
+                    _lessonToStudentService.add(new()
+                    {
+                        StudentId =student1.Id,
+                        LessonId = _lessonService.getByLessonCode(dataSet.Tables[0].Rows[i].ItemArray[10].ToString()).Data.Id,
+                    });
                     studentNumber.Add(student1.Number);
                 }
             }
