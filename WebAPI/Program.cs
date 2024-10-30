@@ -39,6 +39,7 @@ builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
 builder.Host.UseNLog();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddTransient<AuthController>();
+builder.Services.AddTransient<LessonBusinuessRules>();
 builder.Services.AddTransient<SessionBusinessRules>();
 builder.Services.AddSwaggerGen(
   c =>

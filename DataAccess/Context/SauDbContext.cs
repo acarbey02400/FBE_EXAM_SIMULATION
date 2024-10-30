@@ -1,6 +1,7 @@
 ﻿using Core.Entities.Concrete;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Context
 {
-    public class SauDbContext:DbContext
+    public class SauDbContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -37,6 +38,65 @@ namespace DataAccess.Context
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
         public DbSet<UserType> UserTypes { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new DepartmentConfiguration());
+            modelBuilder.ApplyConfiguration(new FacultiyConfiguration());
 
+        }
+        public class DepartmentConfiguration : IEntityTypeConfiguration<Department>
+        {
+            public void Configure(EntityTypeBuilder<Department> builder)
+            {
+
+                builder.HasOne(d => d.Facultiy)
+                  .WithMany(f => f.Departments)
+                  .HasForeignKey(d => d.FacultiyId)
+                  .OnDelete(DeleteBehavior.Restrict);
+            }
+        }
+
+        public class FacultiyConfiguration : IEntityTypeConfiguration<Facultiy>
+        {
+            public void Configure(EntityTypeBuilder<Facultiy> builder)
+            {
+                builder.ToTable("Faculties");
+
+                builder.HasKey(f => f.Id);
+
+                builder.Property(f => f.Name)
+                       .IsRequired()
+                       .HasMaxLength(100);
+
+                builder.Property(f => f.isDeleted)
+                       .IsRequired();
+
+                builder.HasMany(f => f.Departments)
+                       .WithOne(d => d.Facultiy)
+                       .HasForeignKey(d => d.FacultiyId)
+                       .OnDelete(DeleteBehavior.SetNull);
+
+
+
+            }
+        }
+        public void ConfigureDepartment(EntityTypeBuilder<Department> builder)
+        {
+            builder.ToTable("Departments");
+
+            builder.HasKey(d => d.Id);
+
+            builder.Property(d => d.Name)
+                   .IsRequired()
+                   .HasMaxLength(100);
+
+            builder.Property(d => d.isDeleted)
+                   .IsRequired();
+
+            builder.HasOne(d => d.Facultiy)
+                   .WithMany(f => f.Departments)
+                   .HasForeignKey(d => d.FacultiyId)
+                   .OnDelete(DeleteBehavior.SetNull);
+        }
     }
 }

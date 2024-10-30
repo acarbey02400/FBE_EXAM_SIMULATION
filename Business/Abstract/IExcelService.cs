@@ -14,7 +14,7 @@ namespace Business.Abstract
         public Core.Utilities.Results.IResult UploadFile(UploadExcelFile file);
         public Core.Utilities.Results.IResult AddLesson(Lesson lesson);
         public Core.Utilities.Results.IResult AddStudent(Student student);
-        public Core.Utilities.Results.IResult AddDepartment();
+        public Core.Utilities.Results.IResult AddDepartment(int facultiyId);
         public Core.Utilities.Results.IResult AddTeachingOfType();
         public Core.Utilities.Results.IResult DeleteFiles();
     }

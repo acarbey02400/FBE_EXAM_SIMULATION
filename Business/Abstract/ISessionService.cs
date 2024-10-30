@@ -20,7 +20,7 @@ namespace Business.Abstract
         public IDataResult<Session> getByExamId(int id);
         public IDataResult<List<Session>> getByDateTime(DateTime dateTime);
         public IDataResult<List<SessionDetailDto>> getSessionDetails();
-        public IResult CheckSessionTime(List<Lesson> lessons);
+        public IResult CheckSessionTime(List<Lesson> lessons, int time);
     }
  
 

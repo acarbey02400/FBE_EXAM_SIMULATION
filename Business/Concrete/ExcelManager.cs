@@ -36,9 +36,10 @@ namespace Business.Concrete
         {
             if(file.formFile == null) { return new ErrorResult("lütfen dosya seçiniz."); }
 
-            if (file.formFile.FileName.ToLower().Contains(".xlsx"))
+            if (file.formFile.FileName.ToLower().EndsWith(".xlsx"))
             {
-                string path = "UploadFile/" + file.formFile.FileName;
+                string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(file.formFile.FileName);
+                string path = Path.Combine("UploadFile", uniqueFileName);
                 using (FileStream stream = new FileStream(path, FileMode.CreateNew))
                 {
                     file.formFile.CopyTo(stream);
@@ -144,7 +145,7 @@ namespace Business.Concrete
             }
             return new SuccessResult();
         }
-        public Core.Utilities.Results.IResult AddDepartment()
+        public Core.Utilities.Results.IResult AddDepartment(int facultiyId)
         {
             List<string> departmentName = new List<string>();
             var data = _departmentService.getAll();
@@ -164,7 +165,7 @@ namespace Business.Concrete
                 }
                 if (departmentCheck)
                 {
-                    Department department = new Department() { isDeleted = false, Name = dataSet.Tables[0].Rows[i].ItemArray[0].ToString() };
+                    Department department = new Department() { isDeleted = false, Name = dataSet.Tables[0].Rows[i].ItemArray[0].ToString(),FacultiyId=facultiyId };
                     _departmentService.add(department);
                     departmentName.Add(department.Name);
                 }

@@ -12,5 +12,6 @@ namespace DataAccess.Abstract
     public interface ILessonDal : IEntityRepository<Lesson>
     {
         public List<LessonDetailDto> GetLessonDetails();
+        public void UpdateRange(List<Lesson> lessons);
     }
 }

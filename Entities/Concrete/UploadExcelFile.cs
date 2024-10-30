@@ -11,6 +11,6 @@ namespace Entities.Concrete
     public class UploadExcelFile 
     {
         public IFormFile? formFile { get; set; }
-        
+    
     }
 }

@@ -39,6 +39,17 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("getbydepartmentid")]
+        public IActionResult GetByDepartmentId(int id)
+        {
+
+            var result = _examService.getByDepartmentId(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
 
         [HttpGet("getbyfacultiyid")]
         public IActionResult GetByFacultyId(int id)

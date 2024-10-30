@@ -59,10 +59,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("adddepartment")]
-        public IActionResult AddDepartment()
+        public IActionResult AddDepartment(int facultiyId)
         {
 
-            var result = _fileService.AddDepartment();
+            var result = _fileService.AddDepartment(facultiyId);
             if (result.Success)
             {
                 return Ok(result);

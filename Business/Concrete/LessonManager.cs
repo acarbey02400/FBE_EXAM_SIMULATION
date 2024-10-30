@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.BusinessAspects.Autofac;
+using Business.BusinessRules;
 using Core.Utilities;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -17,9 +18,11 @@ namespace Business.Concrete
     public class LessonManager : ILessonService
     {
         ILessonDal _lessonDal;
-        public LessonManager(ILessonDal lessonDal)
+        LessonBusinuessRules _rules;
+        public LessonManager(ILessonDal lessonDal, LessonBusinuessRules rules)
         {
-            _lessonDal=lessonDal;
+            _lessonDal = lessonDal;
+            _rules = rules;
         }
         public IResult add(Lesson lesson)
         {
@@ -43,7 +46,7 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<Lesson>>(_lessonDal.GetAll());
         }
-
+       
         public IDataResult<List<Lesson>> getByDepartmentId(int id)
         {
             return new SuccessDataResult<List<Lesson>>(_lessonDal.GetAll(p=>p.DepartmentId == id));
@@ -98,6 +101,18 @@ namespace Business.Concrete
         {
             _lessonDal.Update(lesson);
             return new SuccessResult();
+        }
+
+        public IResult updateRange(List<Lesson> lessons)
+        {
+            _lessonDal.UpdateRange(lessons);
+            return new SuccessResult();
+        }
+
+        public IDataResult<List<Lesson>> getByExamToFacultiy(int examId)
+        {
+            var depList=_rules.GetDepartmentId(examId);
+            return new SuccessDataResult<List<Lesson>>( _lessonDal.GetAll(p => depList.Contains(p.DepartmentId)));
         }
     }
 }

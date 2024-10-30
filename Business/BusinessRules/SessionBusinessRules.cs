@@ -12,29 +12,32 @@ namespace Business.BusinessRules
     {
         private readonly IlessonToStudentService _lessonToStudentService;
         private readonly IStudentService _studentService;
-
-        public SessionBusinessRules(IlessonToStudentService lessonToStudentService,  IStudentService studentService)
+        private readonly ILessonService _lessonService;
+        public SessionBusinessRules(IlessonToStudentService lessonToStudentService,  IStudentService studentService,ILessonService lessonService)
         {
             _lessonToStudentService = lessonToStudentService;
             _studentService = studentService;
+            _lessonService= lessonService;
         }
 
         public int CheckSessionTime(List<Lesson> lessons)
         {
-            var lessonToStudentList=new List<LessonToStudent>();
-            
-            foreach (var lesson in lessons)
-            {
-                lessonToStudentList.AddRange(_lessonToStudentService.getByLessonId(lesson.Id).Data);
-            }
-            var studentId = lessonToStudentList.Select(x => x.StudentId).Distinct().ToList();
-            var students = _studentService.getAll().Data.Where(x => studentId.Contains(x.Id));
-            var lessonTimes = lessons.ToDictionary(lesson => lesson.Id, lesson => lesson.LessonTime);
-            var maxLessonTime = students.Max(student =>
-                lessonToStudentList.Where(lts => lts.StudentId == student.Id)
-                                   .Sum(lts => lessonTimes[lts.LessonId]));
-            return maxLessonTime;
+            // Derslere göre öğrenci eşlemelerini lessonToStudentList'e ekle
+            var lessonToStudentList = lessons
+                .SelectMany(lesson => _lessonToStudentService.getByLessonId(lesson.Id).Data)
+                .ToList();
 
+            // Ders ID'lerine göre ders sürelerini bir sözlükte tut
+            var DicLessons =lessons
+                .ToDictionary(x => x.Id, x => x.LessonTime);
+
+            // Her öğrenci için aldığı derslerin toplam süresini hesapla ve en büyüğünü bul
+            var maxLessonTime = lessonToStudentList
+                .GroupBy(x => x.StudentId)
+                .Select(g => g.Sum(x => DicLessons[x.LessonId]))
+                .Max();
+
+            return maxLessonTime;
         }
     }
 }

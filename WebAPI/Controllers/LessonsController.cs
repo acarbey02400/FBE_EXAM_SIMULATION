@@ -152,6 +152,19 @@ namespace WebAPI.Controllers
             }
         }
 
+        [HttpGet("GetByExamtodepartmentId")]
+        public IActionResult GetByExamtodepartmentId(int examId)
+        {
+            var result = _lessonService.getByExamToFacultiy(examId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result);
+            }
+        }
 
         [HttpGet("getbyname")]
         public IActionResult GetByname(string name)
@@ -195,6 +208,16 @@ namespace WebAPI.Controllers
         public IActionResult Update(Lesson lesson)
         {
             var result = _lessonService.update(lesson);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpPost("updaterange")]
+        public IActionResult UpdateRange(List<Lesson> lessons)
+        {
+            var result = _lessonService.updateRange(lessons);
             if (result.Success)
             {
                 return Ok(result);

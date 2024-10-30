@@ -48,5 +48,14 @@ namespace DataAccess.Concrete.EntityFramework
                               return result.ToList();
             }
         }
+
+        public void UpdateRange(List<Lesson> lessons)
+        {
+            using (SauDbContext context = new SauDbContext())
+            {
+                context.UpdateRange(lessons);
+                context.SaveChanges();
+            }
+        }
     }
 }

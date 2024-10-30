@@ -67,9 +67,13 @@ namespace Business.Concrete
             _sessionDal.Update(session);
             return new SuccessResult();
         }
-        public IResult CheckSessionTime(List<Lesson> lessons)
+        public IResult CheckSessionTime(List<Lesson> lessons , int time)
         {
-            return new SuccessDataResult<int>(_sessionBusinessRules.CheckSessionTime(lessons));
+            if (_sessionBusinessRules.CheckSessionTime(lessons)<=time)
+            {
+                return new SuccessResult();
+            } 
+            return new ErrorResult();
         }
     }
 }

@@ -14,12 +14,14 @@ namespace Business.Abstract
     {
         public IResult add(Lesson lesson);
         public IResult update(Lesson lesson);
+        public IResult updateRange(List<Lesson> lessons);
         public IResult delete(Lesson lesson);
         public IDataResult<List<Lesson>> getAll();
         public IDataResult<List<Lesson>> getByName(string name);
         public IDataResult<Lesson> getById(int id);
         public IDataResult<Lesson> getByLessonCode(string code);
         public IDataResult <List<Lesson>> getByDepartmentId(int id);
+        public IDataResult<List<Lesson>> getByExamToFacultiy(int examId);
         public IDataResult<List<Lesson>> getByStaffId(int id);
         public IDataResult <List<Lesson>> getBySessionId(int id);
         public IDataResult <List<Lesson>> getBySemesterId(int id);
